@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: rgb(44, 44, 224);
+    background: -moz-radial-gradient(circle, rgba(44, 44, 224, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(44, 44, 224, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    background: radial-gradient(circle, rgba(44, 44, 224, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2c2ce0", endColorstr="#00d4ff", GradientType=1);
+}
+
+.container {
+    display: grid;
+
+    place-content: center;
+    height: 100vh;
+    width: auto;
+}
+
+.container-player {
+    width: 540px;
+    height: 169px;
+    background-color: white;
+    border-radius: 10px;
+
+
+    display: grid;
+    grid-template-areas:
+        'A B C'
+        'A D E'
+        'A F F';
+    grid-template-columns: max-content max-content;
+    grid-gap: 10px;
+}
+
+/*== capa da música ==*/
+#A63c0904779a48 {
+    grid-area: A;
+    width: 169px;
+    height: 169px;
+
+}
+
+.pic-left img {
+    width: 169px;
+    height: 169px;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+}
+
+/*== nomes da música ==*/
+#A63c09054b36fe {
+    grid-area: B;
+    padding: 18px 33px 0px 33px;
+    width: 240px;
+}
+
+.name-description {
+    color: #000000c7;
+    text-transform: capitalize;
+    word-wrap: break-word;
+
+}
+
+.name-description h3 {
+    font-size: 18px;
+}
+
+.name-description p {
+    font-size: 14px;
+    opacity: .67;
+}
+
+@media screen and (max-width:600px) {
+    .name-description h1 {
+        font-size: 14px;
+    }
+}
+
+/*== icone logo ==*/
+#A63c0905bf0465 {
+    grid-area: C;
+}
+
+#icon-logo {
+    opacity: .30;
+}
+
+#icon-logo:hover {
+    color: royalblue;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.icon-container {
+    margin: auto;
+}
+
+/*== track bar ==*/
+#A63c09065bf52e {
+    grid-area: D;
+}
+
+.track {
+    display: flex;
+    margin: auto;
+    width: 230px;
+    align-items: center;
+    padding: 0 0 0 33px;
+}
+
+.track progress {
+    width: 227px;
+    height: 6px;
+    border-radius: 30px;
+    background-color: royalblue;
+}
+
+.point-cursor {
+    width: 15px;
+    height: 15px;
+    background-color: #eee;
+    border-radius: 50%;
+    margin-left: -10px;
+}
+
+/*== time ==*/
+#A63c0906123121 {
+    grid-area: E;
+}
+
+.time {
+    display: flex;
+    margin: auto;
+    color: #656565;
+}
+
+.separator {
+    margin: 0 3px 0 3px;
+}
+
+/*== controles ==*/
+#A63c0906eec828 {
+    grid-area: F;
+}
+
+.control {
+    display: flex;
+    justify-content: space-between;
+    margin: 18px 33px 0px 33px;
+}
+
+.control .pause {
+    display: none;
+}
+
+.button {
+    cursor: pointer;
+    color: gray;
+}
