@@ -17,30 +17,37 @@ let artistName = document.querySelector('.name-description p');
 
 renderMusic(indexMusic);
 
-// Eventos
 document.querySelector('.play').addEventListener('click', musicPlay);
 
 document.querySelector('.pause').addEventListener('click', musicPause);
+
+document.querySelector('.repeat').addEventListener('click', returnMusic);
 
 music.addEventListener('timeupdate', barUpdate);
 
 document.querySelector('.prev').addEventListener('click', () => {
     indexMusic--;
     if (indexMusic < 0) { 
-        indexMusic = 5; //tem que aumentar de acordo com a quantidade de musicas (sempre começa no zero).
+        indexMusic = 5; //tem que mudar de acordo com a quantidade de musicas (sempre começa no zero).
     }
     renderMusic(indexMusic);
 });
 
 document.querySelector('.next').addEventListener('click', () => {
     indexMusic++;
-    if (indexMusic > 5){ //tem que aumentar de acordo com a quantidade de musicas (sempre começa no zero).
+    if (indexMusic > 5){ //tem que mudar de acordo com a quantidade de musicas (sempre começa no zero).
         indexMusic = 0;
     }
     renderMusic(indexMusic);
 });
 
-// Funções
+document.querySelector('.repeat').addEventListener('click', () => {
+    indexMusic == 0;
+    renderMusic(indexMusic);
+    
+});
+
+
 function renderMusic(index){
     music.setAttribute('src', musics[index].src);
     music.addEventListener('loadeddata', () => {
@@ -53,14 +60,14 @@ function renderMusic(index){
 
 function musicPlay(){
     music.play();
-    document.querySelector('.pause').style.display = 'block';//VERIFICAR
+    document.querySelector('.pause').style.display = 'block';
     document.querySelector('.play').style.display = 'none';
 }
 
 function musicPause(){
     music.pause();
     document.querySelector('.pause').style.display = 'none';
-    document.querySelector('.play').style.display = 'block';//VERIFICAR
+    document.querySelector('.play').style.display = 'block';
 }
 
 function barUpdate(){
@@ -78,4 +85,11 @@ function secformin(seconds){
     }
 
     return minutesCamp+':'+secondsCamp;
+}
+
+function returnMusic(){
+    let newBarr = document.querySelector('progress');
+    newBarr.style.width = 0;
+    document.querySelector('.pause').style.display = 'none';
+    document.querySelector('.play').style.display = 'block';
 }

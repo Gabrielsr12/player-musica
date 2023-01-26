@@ -10,7 +10,6 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: rgb(44, 44, 224);
     background: -moz-radial-gradient(circle, rgba(44, 44, 224, 1) 0%, rgba(0, 212, 255, 1) 100%);
     background: -webkit-radial-gradient(circle, rgba(44, 44, 224, 1) 0%, rgba(0, 212, 255, 1) 100%);
     background: radial-gradient(circle, rgba(44, 44, 224, 1) 0%, rgba(0, 212, 255, 1) 100%);
@@ -27,7 +26,7 @@ body {
 
 .container-player {
     width: 540px;
-    height: 169px;
+    height: 200px;
     background-color: white;
     border-radius: 10px;
 
@@ -45,13 +44,13 @@ body {
 #A63c0904779a48 {
     grid-area: A;
     width: 169px;
-    height: 169px;
+    height: 200px;
 
 }
 
 .pic-left img {
     width: 169px;
-    height: 169px;
+    height: 200px;
     object-fit: cover;
     border-radius: 10px 0 0 10px;
 }
@@ -127,7 +126,7 @@ body {
 .point-cursor {
     width: 15px;
     height: 15px;
-    background-color: #eee;
+    background-color: royalblue;
     border-radius: 50%;
     margin-left: -10px;
 }
@@ -165,4 +164,7 @@ body {
 .button {
     cursor: pointer;
     color: gray;
+}
+.button:hover{
+    color: royalblue;
 }
