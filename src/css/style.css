@@ -168,3 +168,41 @@ body {
 .button:hover{
     color: royalblue;
 }
+
+@media (max-width:600px) {
+    .container-player{
+        width: 400px;
+        height: 450px;
+        display: grid;
+    grid-template-areas:
+        'A A'
+        'B B'
+        'D E'
+        'F F';
+    grid-template-columns: max-content;
+    grid-gap: 10px;
+    }
+    .pic-left img{
+        width: 400px;
+        height: 230px;
+        border-radius: 10px 10px 0 0;
+    }
+    #A63c09054b36fe {
+        grid-area: B;
+        padding: 18px 33px 0px 33px;
+        width: 400px;
+    }
+    .track {
+        padding: 0;
+    }
+    .name-description h3 {
+        font-size: 23px;
+    }
+    .name-description p {
+        font-size: 18px;
+    }
+    #A63c0905bf0465{
+        display: none;
+    }
+   
+}
