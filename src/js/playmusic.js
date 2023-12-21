@@ -1,10 +1,10 @@
 let musics = [
-    {title:'old habits', artist:'aimless', src:'./src/assets/msc/aimless - old habits.mp3', img:'./src/assets/img/63c0e54408cb1.jpg'},
-    {title:'gradient', artist:'akryl', src:'./src/assets/msc/Akryl - Gradient.mp3', img:'./src/assets/img/63c0e5686f435.jpg'},
-    {title:'jazz bandicoot', artist:'akryl', src:'./src/assets/msc/Akryl - Jazz Bandicoot.mp3', img:'./src/assets/img/63c0e5798fd7a.jpg'},
-    {title:'mocha', artist:'akryl', src:'./src/assets/msc/Akryl - Mocha.mp3', img:'./src/assets/img/63c0e5830e09f.jpg'},
-    {title:'typical day at the office', artist:'akryl', src:'./src/assets/msc/Akryl - Typical Day At The Office.mp3', img:'./src/assets/img/63c0e58cde753.jpg'},
-    {title:'august', artist:'ameba', src:'./src/assets/msc/Ameba - August.mp3', img:'./src/assets/img/63c0e59726aff.jpg'}
+    { title: 'old habits', artist: 'aimless', src: './src/assets/msc/aimless - old habits.mp3', img: './src/assets/img/63c0e54408cb1.jpg' },
+    { title: 'gradient', artist: 'akryl', src: './src/assets/msc/Akryl - Gradient.mp3', img: './src/assets/img/63c0e5686f435.jpg' },
+    { title: 'jazz bandicoot', artist: 'akryl', src: './src/assets/msc/Akryl - Jazz Bandicoot.mp3', img: './src/assets/img/63c0e5798fd7a.jpg' },
+    { title: 'mocha', artist: 'akryl', src: './src/assets/msc/Akryl - Mocha.mp3', img: './src/assets/img/63c0e5830e09f.jpg' },
+    { title: 'typical day at the office', artist: 'akryl', src: './src/assets/msc/Akryl - Typical Day At The Office.mp3', img: './src/assets/img/63c0e58cde753.jpg' },
+    { title: 'august', artist: 'ameba', src: './src/assets/msc/Ameba - August.mp3', img: './src/assets/img/63c0e59726aff.jpg' }
 ]; //adicionar musicas
 
 let music = document.querySelector('audio');
@@ -27,7 +27,7 @@ music.addEventListener('timeupdate', barUpdate);
 
 document.querySelector('.prev').addEventListener('click', () => {
     indexMusic--;
-    if (indexMusic < 0) { 
+    if (indexMusic < 0) {
         indexMusic = 5; //tem que mudar de acordo com a quantidade de musicas (sempre começa no zero).
     }
     renderMusic(indexMusic);
@@ -35,7 +35,7 @@ document.querySelector('.prev').addEventListener('click', () => {
 
 document.querySelector('.next').addEventListener('click', () => {
     indexMusic++;
-    if (indexMusic > 5){ //tem que mudar de acordo com a quantidade de musicas (sempre começa no zero).
+    if (indexMusic > 5) { //tem que mudar de acordo com a quantidade de musicas (sempre começa no zero).
         indexMusic = 0;
     }
     renderMusic(indexMusic);
@@ -44,11 +44,11 @@ document.querySelector('.next').addEventListener('click', () => {
 document.querySelector('.repeat').addEventListener('click', () => {
     indexMusic == 0;
     renderMusic(indexMusic);
-    
+
 });
 
 
-function renderMusic(index){
+function renderMusic(index) {
     music.setAttribute('src', musics[index].src);
     music.addEventListener('loadeddata', () => {
         musicName.textContent = musics[index].title;
@@ -58,38 +58,48 @@ function renderMusic(index){
     });
 }
 
-function musicPlay(){
+function musicPlay() {
     music.play();
     document.querySelector('.pause').style.display = 'block';
     document.querySelector('.play').style.display = 'none';
 }
 
-function musicPause(){
+function musicPause() {
     music.pause();
     document.querySelector('.pause').style.display = 'none';
     document.querySelector('.play').style.display = 'block';
 }
 
-function barUpdate(){
+function barUpdate() {
     let barr = document.querySelector('progress');
     barr.style.width = Math.floor((music.currentTime / music.duration) * 100) + '%';
     let elapsedTime = document.querySelector('.time-begin');
     elapsedTime.textContent = secformin(Math.floor(music.currentTime));
 }
 
-function secformin(seconds){
+function secformin(seconds) {
     let minutesCamp = Math.floor(seconds / 60);
     let secondsCamp = seconds % 60;
-    if (secondsCamp < 10){
+    if (secondsCamp < 10) {
         secondsCamp = '0' + secondsCamp;
     }
 
-    return minutesCamp+':'+secondsCamp;
+    return minutesCamp + ':' + secondsCamp;
 }
 
-function returnMusic(){
+function returnMusic() {
     let newBarr = document.querySelector('progress');
     newBarr.style.width = 0;
     document.querySelector('.pause').style.display = 'none';
     document.querySelector('.play').style.display = 'block';
 }
+
+let volumeControl = document.querySelector('.volume-control');
+volumeControl.addEventListener('input', updateVolume);
+
+function updateVolume() {
+    music.volume = volumeControl.value;
+}
+
+// Configuração inicial do volume
+music.volume = volumeControl.value;

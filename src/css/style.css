@@ -121,6 +121,7 @@ body {
     height: 6px;
     border-radius: 30px;
     background-color: royalblue;
+    outline: 1px solid gray;
 }
 
 .point-cursor {
@@ -154,7 +155,8 @@ body {
 .control {
     display: flex;
     justify-content: space-between;
-    margin: 18px 33px 0px 33px;
+    align-items: center;
+    margin: 18px 33px 18px 33px;
 }
 
 .control .pause {
@@ -168,6 +170,20 @@ body {
 .button:hover{
     color: royalblue;
 }
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.footer p{
+    color: white;
+}
+.footer p span{
+    color: orange;
+}
+
 
 @media (max-width:600px) {
     .container-player{
